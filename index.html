@@ -541,10 +541,7 @@
             document.getElementById('alert-modal').classList.remove('hidden');
         }
 
-        /**
-         * Displays a temporary toast notification with the final result.
-         * @param {string} message - The message to display.
-         */
+
         function showToast(message) {
             const toast = document.getElementById('toast-notification');
             toast.innerText = message;
@@ -557,10 +554,7 @@
             }, 2000);
         }
 
-        /**
-         * Triggers the calculation process wrapper.
-         * @param {string} buttonId - The ID of the button that was pressed.
-         */
+     
         function triggerCalculation(buttonId) {
             const button = document.getElementById(buttonId);
             if (button) {
@@ -577,12 +571,7 @@
             }
         }
 
-        /**
-         * Shows a custom event modal for a specified duration.
-         * @param {string} contentHtml - The HTML content to display.
-         * @param {number} durationMs - How long to display the modal in milliseconds.
-         * @param {function} callback - Function to run when the modal closes.
-         */
+  
         function showEventModal(contentHtml, durationMs, callback) {
             const modal = document.getElementById('event-modal');
             const content = document.getElementById('event-content');
@@ -608,15 +597,10 @@
                     if (callback) {
                         callback();
                     }
-                }, 300); // Match CSS transition duration
+                }, 300); 
             }, durationMs);
         }
 
-        /**
-         * Checks the random roll condition and triggers the event if successful.
-         * @param {function} nextStep - The original calculation function to run if the event is NOT triggered.
-         * @returns {boolean} True if the event was triggered and calculation was postponed, false otherwise.
-         */
         function checkRandomRoll(nextStep) {
             calculationCount++;
             
@@ -626,31 +610,26 @@
 
                 if (triggerNumbers.includes(roll)) {
                     const coffeeHtml = `
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Random Break (Roll: ${roll})</h3>
-                        <p class="text-lg text-red-600 mb-4 font-semibold">I am tired, rest a well then calculate for you.</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Random Break </h3>
+                        <p class="text-lg text-red-600 mb-4 font-semibold">I tired already, rest a well then calculate for you.</p>
                         <div class="text-5xl my-4">☕😴</div>
-                        <p class="text-sm text-gray-500">Resuming calculation in 4 seconds...</p>
+                        <p class="text-sm text-gray-500">Resuming calculation in 5 seconds...</p>
                     `;
                     
-                    showEventModal(coffeeHtml, 4000, nextStep); // 4 second break
-                    calculationCount = 0; // Reset counter after successful roll
+                    showEventModal(coffeeHtml, 5000, nextStep); 
+                    calculationCount = 0;
                     return true;
                 } else {
-                    calculationCount = 0; // Reset counter for unsuccessful roll attempt
+                    calculationCount = 0; 
                 }
             }
             return false;
         }
 
-        /**
-         * Checks the time bomb condition and triggers the event if successful.
-         * @param {function} nextStep - The original calculation function to run if the event is NOT triggered.
-         * @returns {boolean} True if the event was triggered and calculation was postponed, false otherwise.
-         */
         function checkTimeBomb(nextStep) {
             const now = new Date();
             const minutes = now.getMinutes();
-            // Check for the minute 30. We use a small window (30:00 to 30:09) to make it strict.
+        
             if (minutes === 30 && now.getSeconds() < 10) { 
                 const timeBombHtml = `
                     <h3 class="text-2xl font-bold text-red-600 mb-4">💣 Time Bomb Alert!</h3>
@@ -1455,3 +1434,4 @@
 </body>
 
 </html>
+
