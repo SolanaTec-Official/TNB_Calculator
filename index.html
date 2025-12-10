@@ -77,16 +77,22 @@
         /* --- Animation for Toast Pop-up --- */
         #toast-notification {
             transition: top 0.3s ease-out, opacity 0.3s ease-out;
-            top: -5rem;
-            /* Start position: off-screen above */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            /* Start position: slightly above center */
             opacity: 0;
+            position: fixed; /* ensure it's relative to viewport */
+        }
+        
+        .toast-show {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* End position: perfectly centered */
+            opacity: 1;
         }
 
-        .toast-show {
-            top: 2rem !important;
-            /* End position: 2rem from top */
-            opacity: 1 !important;
-        }
 
         /* --- Animation for Results Section --- */
         @keyframes slideInFromLeft {
@@ -1434,5 +1440,6 @@
 </body>
 
 </html>
+
 
 
