@@ -30,27 +30,57 @@
             background-color: #f9fafb;
         }
 
-        /* --- Tab Styles for Visual Feedback --- */
-        .tab-button {
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            color: #142850;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            border-bottom: 3px solid transparent;
-            flex-grow: 1;
-            text-align: center;
-        }
+    
+    .tab-button {
+        background: #ffffff;
+        color: #142850;
+        padding: 0.9rem 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.25s ease-in-out;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+    }
 
-        .tab-button:hover:not(.active) {
-            background-color: #f3f4f6;
-        }
+    .tab-button:hover:not(.active) {
+        background: #f3f4f6;   
+        color: #0f1e35;
+    }
 
-        .tab-button.active {
-            color: #F1C232;
-            border-color: #F1C232;
-            background-color: #ffffff;
-        }
+    .tab-button.active {
+        background: linear-gradient(to right, #facc15, #f87171, #ec4899);
+        color: white;
+        font-weight: 800;
+        border-color: #ec4899;             
+        transform: scale(1.08);            
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        z-index: 5;
+    }
+
+    /* Universal gradient button for ALL calculate/estimate actions */
+.gradient-btn {
+    background: linear-gradient(to right, #facc15, #f87171, #ec4899);
+    color: white !important;
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    transition: 0.25s ease-in-out;
+    border: none;
+}
+
+.gradient-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.20);
+}
+
+.gradient-btn:active {
+    transform: scale(0.98);
+}
 
         /* --- Animation for Button Click/Enter Key --- */
         @keyframes button-press {
@@ -157,7 +187,7 @@
         </header>
 
         <!-- Main Content Area -->
-        <div class="bg-[#F4C769] p-6 md:p-8">
+        <div class="p-6 md:p-8" style="background-color: #FBE79C;">
 
             <!-- Tabbed Navigation -->
             <div class="flex border-b border-gray-200 mb-6">
@@ -198,7 +228,7 @@
 
                     <!-- Domestic General Calculate Form (Wrapped in a form tag) -->
                     <form id="dom-general-calc-form" class="form-pane bg-blue-50 p-6 rounded-lg border border-blue-200"
-                        onsubmit="event.preventDefault(); triggerCalculation('dom-gen-calc-button');">
+                        onsubmit="event.preventDefault(); triggerCalculation('dom-gen-est-button');">
                         <h3 class="text-xl font-bold mb-4 text-blue-800">Domestic (General)</h3>
                         <div class="mb-4">
                             <label for="dom-gen-calc-usage" class="block text-gray-700 font-medium mb-1">Total Usage
@@ -212,8 +242,10 @@
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <button id="dom-gen-calc-button"
-                            class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300">Calculate
-                            Bill</button>
+                        class="gradient-btn">
+                        Calculate Bill
+                        </button>
+
                     </form>
 
                     <!-- Domestic TOU Calculate Form (Wrapped in a form tag) -->
@@ -240,7 +272,7 @@
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <button id="dom-tou-calc-button"
-                            class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-md hover:bg-indigo-700 transition duration-300">Calculate
+                        class="gradient-btn">Calculate
                             Bill</button>
                     </form>
 
@@ -274,7 +306,7 @@
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <button id="nd-calc-button"
-                            class="w-full bg-purple-600 text-white font-bold py-3 px-4 rounded-md hover:bg-purple-700 transition duration-300">Calculate
+                        class="gradient-btn">Calculate
                             Bill</button>
                     </form>
                 </div>
@@ -321,11 +353,13 @@
                             <label for="dom-gen-est-afa" class="block text-gray-700 font-medium mb-1">AFA</label>
                             <input type="number" id="dom-gen-est-afa" step="0.0001" value="-0.0145"
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        <button id="dom-gen-est-button"
-                            class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300">Estimate
-                            Usage</button>
-                    </form>
+                            </div>
+                            <button id="dom-gen-est-button"
+                            class="gradient-btn">
+                            Estimate Usage
+                            </button>
+    
+                        </form>
 
                     <!-- Domestic TOU Estimate Form (Wrapped in a form tag) -->
                     <form id="dom-tou-est-form"
@@ -351,7 +385,7 @@
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <button id="dom-tou-est-button"
-                            class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-md hover:bg-indigo-700 transition duration-300">Estimate
+                        class="gradient-btn">Estimate
                             Usage</button>
                     </form>
 
@@ -385,7 +419,7 @@
                                 class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <button id="nd-est-button"
-                            class="w-full bg-purple-600 text-white font-bold py-3 px-4 rounded-md hover:bg-purple-700 transition duration-300">Estimate
+                        class="gradient-btn">Estimate
                             Usage</button>
                     </form>
                 </div>
