@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #142850;
+            background-color: #F1C232;
         }
 
         /* Custom styles for results table */
@@ -51,10 +51,10 @@
     }
 
     .tab-button.active {
-        background: linear-gradient(to right, #facc15, #f87171, #ec4899);
+        background: linear-gradient(to right, #38bdf8, #2563eb, #0f1e35);
         color: white;
         font-weight: 800;
-        border-color: #ec4899;             
+        border-color: #0f1e35;             
         transform: scale(1.08);            
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         z-index: 5;
@@ -62,7 +62,7 @@
 
     /* Universal gradient button for ALL calculate/estimate actions */
 .gradient-btn {
-    background: linear-gradient(to right, #facc15, #f87171, #ec4899);
+    background: linear-gradient(to right, #38bdf8, #2563eb, #0f1e35);
     color: white !important;
     font-weight: 700;
     padding: 0.9rem 1rem;
@@ -182,10 +182,25 @@
     <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg">
 
         <!-- Header Section -->
-        <header class="bg-[#F1C232] text-white p-6 rounded-t-xl text-center">
-            <h1 class="text-3xl font-bold">TNB Electricity Bill Calculator</h1>
-            <p class="mt-2 text-white text-lg">Calculate your bill or estimate usage with ease.</p>
-        </header>
+        <header class="bg-[#0f1e35] text-[#F89B1C] p-6 py-10 rounded-t-xl text-center">
+
+    <!-- Solana Logo -->
+    <div class="flex justify-center mb-4">
+        <img 
+            src="images/solana-logo-alternative.png"
+            alt="SolanaTEC Logo"
+            class="h-32 md:h-36 object-contain">
+    </div>
+
+    <h1 class="text-3xl font-bold">
+        TNB Electricity Bill Calculator
+    </h1>
+
+    <p class="mt-2 text-[#F89B1C] text-lg">
+        Calculate your bill or estimate usage with ease.
+    </p>
+
+    </header>
 
         <!-- Main Content Area -->
         <div class="p-6 md:p-8" style="background-color: #FBE79C;">
